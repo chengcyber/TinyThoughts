@@ -1,2 +1,2 @@
 # TinyThoughts
-:blub: Thoughts can not escape now !
+ ::blub:: Thoughts can not escape now !
