@@ -212,32 +212,51 @@ ul {
 ![align-items: stretch](http://ojmbu5nqv.bkt.clouddn.com/flex-align-items-stretch.png)
 
 #### 5.2 Flex-start
+顶端对齐
 ![align-items: flex-start](http://ojmbu5nqv.bkt.clouddn.com/flex-align-items-flex-start.png)
 
 #### 5.3 Flex-end
+底端对齐
 ![align-items: flex-end](http://ojmbu5nqv.bkt.clouddn.com/flex-align-items-flex-end.png)
 
 #### 5.4 Center
+居中对齐
 ![align-items: center](http://ojmbu5nqv.bkt.clouddn.com/flex-align-items-center.png)
 
 #### 5.5 Baseline
+基于基准线对齐
 ![align-items: baseline](http://ojmbu5nqv.bkt.clouddn.com/flex-align-item-baseline.png)
 
+`baseline` 和 `flex-start` 十分相似，但有略微的不同。
+什么是基准线对齐，请看下图
 ![](http://ojmbu5nqv.bkt.clouddn.com/flex-align-items-baseline1.png)
 
 ### 6. Align-content
+`align-content` 是在 `flex-items` 被 `wrap` 后的内容对齐。相当于多行模式的 `align-items`，可用值排除`baseline`
+
+
+```
+/*ul represents any flex container*/
+ul {
+    align-content: flex-start || flex-end || center || stretch
+}
+/* default stretch */
+```
 
 #### 6.1 Stretch
+元素按照最高的元素高度在 `cross-axis` 对齐
 ![](http://ojmbu5nqv.bkt.clouddn.com/flex-align-content-stretch.png)
 
 #### 6.2 Flex-start
-
+顶端对齐
 ![](http://ojmbu5nqv.bkt.clouddn.com/flex-align-content-flex-start.png)
 
 #### 6.3 Flex-end
+底端对齐
 ![](http://ojmbu5nqv.bkt.clouddn.com/flex-align-content-flex-end.png)
 
-### 6.4 Center
+#### 6.4 Center
+居中对齐
 ![](http://ojmbu5nqv.bkt.clouddn.com/flex-align-content-center.png)
 
 # Resource
