@@ -103,6 +103,7 @@ ul {
 </ul>
 ```
 ![after add to 10 items](http://ojmbu5nqv.bkt.clouddn.com/flex_wrap_10item.png)
+
 可以看到元素挤压了自身来容纳新增加的元素。
 现在，我们来设置 `flex-wrap`
 
@@ -113,6 +114,7 @@ ul {
 }
 ```
 ![flex-wrap initiated](http://ojmbu5nqv.bkt.clouddn.com/flex-wrap-initiated.png)
+
 通过将 `flex-wrap` 设置为 `no-wrap`, 元素就能自动换行了
 
 再来试试看 `no-wrap-reverse`
@@ -215,18 +217,22 @@ ul {
 
 #### 5.2 Flex-start
 顶端对齐
+
 ![align-items: flex-start](http://ojmbu5nqv.bkt.clouddn.com/flex-align-items-flex-start.png)
 
 #### 5.3 Flex-end
 底端对齐
+
 ![align-items: flex-end](http://ojmbu5nqv.bkt.clouddn.com/flex-align-items-flex-end.png)
 
 #### 5.4 Center
 居中对齐
+
 ![align-items: center](http://ojmbu5nqv.bkt.clouddn.com/flex-align-items-center.png)
 
 #### 5.5 Baseline
 基于基准线对齐
+
 ![align-items: baseline](http://ojmbu5nqv.bkt.clouddn.com/flex-align-item-baseline.png)
 
 `baseline` 和 `flex-start` 十分相似，但有略微的不同。
@@ -247,18 +253,22 @@ ul {
 
 #### 6.1 Stretch
 元素按照最高的元素高度在 `cross-axis` 对齐
+
 ![](http://ojmbu5nqv.bkt.clouddn.com/flex-align-content-stretch.png)
 
 #### 6.2 Flex-start
 顶端对齐
+
 ![](http://ojmbu5nqv.bkt.clouddn.com/flex-align-content-flex-start.png)
 
 #### 6.3 Flex-end
 底端对齐
+
 ![](http://ojmbu5nqv.bkt.clouddn.com/flex-align-content-flex-end.png)
 
 #### 6.4 Center
 居中对齐
+
 ![](http://ojmbu5nqv.bkt.clouddn.com/flex-align-content-center.png)
 
 
@@ -294,7 +304,8 @@ flexbox 默认的 `order` 为 `0` ，按递增排序。
     }
 ```
 
-![set first child order to 1](http://ojmbu5nqv.bkt.clouddn.com/flexbox-order-1.png)
+![](http://ojmbu5nqv.bkt.clouddn.com/flexbox-order-1.png)
+
 由于2，3，4的 `order` 都是 `0`， 所以第一个元素就被排列到了最后。
 
 ## 2.Flex-grow and Flex-shrink
@@ -311,10 +322,13 @@ flexbox 默认的 `order` 为 `0` ，按递增排序。
 `flex-shrink` 默认为`1`，自动缩减
 
 来看一下例子
+
 ![Simple flex-item](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-grow-0.png)
+
 由于 `flex-grow` 默认为 `0`， 元素就不会进行展开，占用整个一行
 
 ![flex-item fill the available space](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-grow-1.png)
+
 在 `flex-grow` 设置为 `1`后， 元素就展开占据了整个一行
 
 至于， `flex-shrink` 默认为 `1`，在文章开头例子中，添加10个元素时就已经观察过。
@@ -341,7 +355,9 @@ li:nth-child(2) {
     flex-grow: 1;
 }
 ```
+
 ![flex-grow ratio](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-grow-postive-number.png)
+
 显然，我们可以通过增加 `flex-grow` 的值，来增加元素占行比
 
 由此可见，    
@@ -366,7 +382,9 @@ li {
     <li>I am a simple list AND I am a simple list</li>
 </ul>
 ```
+
 ![flex-basis auto](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-basis-default.png)
+
 这是在 `flex-basis` 默认为 `auto` 时的样子。
 
 当我们设置为某个固定尺寸时
@@ -376,7 +394,9 @@ li {
     flex-basis: 150px;
 }
 ```
+
 ![flex-basis with a constrained width](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-basis-150px.png)
+
 
 ### 4. Flex
 `flex` 是 `flex-grow` + `flex-shrink` + `flex-basis` 的简写形式，就如同于 `flex-flow` `border` 之类的成员。
@@ -392,7 +412,9 @@ li {
   /* same as flex: default */
 }
 ```
+
 ![flex: 0 1 auto](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-default.png)
+
 此时，元素不会展开，会缩减，根据自身内容调整大小
 
 #### 4.2 flex: 0 0 auto - none
@@ -407,6 +429,7 @@ li {
 ```
 
 ![flex: 0 0 auto](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-none.png)
+
 此时，元素不会展开，不会缩减，而且根据自身内容调整大小
 
 ![NOT shrink when resizing browser](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-none-resizing.png)
@@ -421,7 +444,9 @@ li {
   /* same as flex: auto */
 }
 ```
+
 ![flex: 1 1 auto](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-auto.png)
+
 元素自动展开，自动缩减，根据内容调整大小
 
 ### 5. Align-self
@@ -434,22 +459,27 @@ li:first-of-type {
     align-self: auto || flex-start || flex-end || center || baseline || stretch
 }
 ```
+
 这些可用值应该已经很熟悉了吧
 
 #### 5.1 Flex-end
 单个元素在 `cross-axis` 底部对齐
+
 ![targeted flex item at the end of the cross axis](http://ojmbu5nqv.bkt.clouddn.com/flex-align-self-flex-end.png)
 
 #### 5.2 Center
 单个元素在 `cross-axis` 居中对齐
+
 ![targeted flex item at the center of the cross axis](http://ojmbu5nqv.bkt.clouddn.com/flex-align-self-center.png)
 
 #### 5.3 Stretch
 单个元素填充整个 `cross-axis`
+
 ![targeted flex item stretched along the cross axis](http://ojmbu5nqv.bkt.clouddn.com/flex-align-self-stretch.png)
 
 #### 5.4 Baseline
 单个元素 基准线对齐
+
 ![targeted flex item aligned along the baseline](http://ojmbu5nqv.bkt.clouddn.com/flex-align-self-baseline.png)
 
 #### 5.5 auto
@@ -504,6 +534,7 @@ li {
     margin: 2em;
 }
 ```
+
 ![relative flex-item](http://ojmbu5nqv.bkt.clouddn.com/flex-relative.png)
 
 设置为绝对弹性元素
@@ -559,6 +590,7 @@ li {
 这是一个简单的弹性盒子，元素不会展开，不会缩减，根据自身内容调整大小。
 
 但是可以看到，行尾还留有许多空隙
+
 ![extra spaces](http://ojmbu5nqv.bkt.clouddn.com/flex-automargin-extra.png)
 
 现在，我们对第一个元素设置 `margin: auto`
@@ -568,6 +600,7 @@ li:nth-child(1) {
     margin-right: auto; /*applied only to the right*/
 }
 ```
+
 ![margin: auto applied to branding](http://ojmbu5nqv.bkt.clouddn.com/flex-automargin-branding.png)
 
 这之间发生了什么呢？
@@ -612,6 +645,7 @@ ul {
 在 `flex-direciton` 的章节中，我们提到过 `main-axis` 和 `cross-axis` 这两个坐标轴概念。 为什么我们要用坐标轴概念，而摒弃水平/垂直排列呢？答案就在 `flex-direction` 上。
 
 当 `flex-direction: row` 的时候，我们都知道从左向右排列，正确地说应该称之为 默认的 `main-axis` 和 `cross-axis` 位置。
+
 ![default main and cross axis](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-direction-row.png) 
 
 当我们 `flex-direction: column` 时，到底发生了什么？
