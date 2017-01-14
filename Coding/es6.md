@@ -672,3 +672,9 @@ function Store() {
 ```
 
 
+# Resources
+
+[Learn ES2015](https://babeljs.io/learn-es2015/)
+[ES2015 course in Egghead](https://egghead.io/courses/learn-es6-ecmascript-2015)
+
+
