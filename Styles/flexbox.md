@@ -672,7 +672,7 @@ ul {
 ![](http://ojmbu5nqv.bkt.clouddn.com/flex-flex-direction-demo-row.png)
 
 ```
-ul {
+ul {[resume](media/resume.md)
     display: flex;
     flex-direction: column;
 }
