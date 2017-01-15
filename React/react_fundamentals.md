@@ -1,0 +1,511 @@
+# create-react-app
+
+```Bash
+sudo npm install -g create-react-app
+
+create-react-app appName
+# wait for install
+
+cd appName
+npm start
+```
+
+# Hello world App
+
+Three starter file
+
+- public/index.html
+- index.js
+- App.js
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React App</title>
+</head>
+<body>
+
+  <div id="root"></div>
+
+</body>
+</html>
+```
+
+
+```javascript
+// src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+```
+
+```jsx
+// src/App.js
+import React from 'react;
+
+class App extends React.Component {
+    render() {
+        return <h1>Hello word</h1>
+    }
+}
+
+// stateless component
+// const App = (props) => <h1>Hello stateless<h1>
+
+export default App;
+```
+
+# Nested Component
+
+
+```jsx
+// src/App.js
+import React, {Component} from 'react';
+
+class App extends Component {
+    render() {
+        return (
+            <Button>I <Heart /> React</Button>
+        )
+    }
+}
+
+
+
+// cut heart glyphicon
+const Heart = (props) => <span>&heart;</span>
+
+// Button contains <button> tag
+const Button = (props) => <button>{props.children}</button>
+
+export default App;
+
+```
+
+# PropTypes & defaultProps
+
+## Simple demo
+
+```jsx
+import React, {Component, PropTypes} from 'react';
+
+class App extends Component {
+    render() {
+        return (
+            // <Widget txt="I am a widget" /> // cat is required, so error
+            <Widget txt="I am a widget" cat="meow" />
+        )
+    }
+}
+
+const Widget = (props) => <h1>{props.txt} - {props.cat}</h1>
+
+Widget.propTypes = {
+    txt: React.PropTypes.string,
+    // I have imported PropTypes for shorthand
+    cat: PropTypes.string.isRequired
+}
+
+export default App;
+    
+```
+
+## Advanced demo - custom propTypes
+
+```jsx
+// src/App.js
+import React, {Component} from  'react';
+
+class App extends Component {
+    render() {
+        return (
+            // <Title /> // error: Missing text
+            // <Title text="123" /> // error: text was too short
+            <Title text="123456" />
+        )
+    }
+}
+
+const Title = (props) => <h1>Title: {props.text}</h1>
+
+Title.propTypes = {
+    text(props, propName, component) {
+        if (!(porpName in props)) {
+            return new Error(`Missing ${propName}`);
+        }
+        if (porps[propName].length < 6) {
+            return new Error(`${propName} was too short`);
+        }
+    }
+}
+
+export default App;
+
+```
+
+# Event Flow
+
+## Simple demo
+
+```jsx
+// src/App.js
+import React, {Component} from 'react';
+
+class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            txt: 'This is a state text',
+            count: 0
+        }
+    }
+    
+    update(e) {
+        this.setState({
+            txt: e.target.value,
+            count: this.state.count + 1
+        })
+    }    
+    render() {
+        return (
+            // render() returns only one element, if you got two use <div> tag around them
+            <div>
+                <h1>{this.state.txt} - {this.state.count}</h1>
+                <input
+                    type="text"
+                    defaultValue=""
+                    // binding update method here
+                    onChange={this.update.bind(this)}
+                />
+            </div>
+        )
+    }
+}
+
+export default App;
+
+```
+
+## Advanced demo
+
+```jsx
+// src/App.js
+import React, {Component} from 'react';
+
+class App extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+            currentEvent: 'None'
+        }
+        
+        // NOTE update method bind to this here
+        this.update = this.update.bind(this)
+    }
+    
+    update(e) {
+        this.setState({
+            currentEvent: e.type
+        })
+    }
+    
+    render() {
+        return (
+            <div>
+                <textarea
+                    onKeyPress={this.update}
+                    onCopy={this.update}
+                    onCut={this.update}
+                    onPaste={this.update}
+                    onFocus={this.update}
+                    onBlur={this.update}
+                    onDoubleClick={this.update}
+                    onTouchStart={this.update}
+                    onTouchMove={this.update}
+                    onTouchEnd={this.update}
+                    row="10"
+                    col="30"
+                />           
+                <h1>{this.state.currentEvent}</h1>
+            </div>
+        )
+    }
+}
+
+export default App;
+
+
+```
+
+# React ref - Get a reference to Specific Components
+
+
+```jsx
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
+class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            a: '',
+            b: ''
+        }
+        this.update = this.update.bind(this);
+    }
+    
+    update() {
+        this.setState({
+            a: this.refs.a.refs.inp.value, // 1.get the specified <input> node
+            // a: this.a.refs.inp.value, // 2. get <Input> by this.a
+            // a: ReactDOM.findDOMNode(this.a).refs.inp.value 
+            // get <Input> a with findDOMNode() specified with this.a
+            b: this.refs.b.value
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <Input
+                    ref="a" // 1.ref set to a, <Input> node = this.refs.a
+                    // ref={component => this.a = component} 
+                    // 2.set reference to this.a
+                    update={this.update}
+                />
+                
+                <input
+                    ref="b" // ref set to b, <input> node = this.refs.b
+                    type="text"
+                    onChange={this.update}
+                />
+                {this.state.b}
+            </div>
+        )
+    }
+}
+
+// Input set ref to "inp", Input node = this.refs.inp
+const Input = (props) => 
+    <div><input ref="inp" type="text" onChange={this.props.update} /></div>
+
+export default App;
+
+```
+
+# Component Life Cycle Methods
+
+[React Component Life Cycle](https://facebook.github.io/react/docs/react-component.html)
+
+## Demo 1
+
+
+```jsx
+// src/App.js
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
+/**
+ * App: click two button Mount/Unmount, render/unmount button to div#a 
+ */
+class App extends Component {
+    mount() {
+        ReactDOM.render(<WrappedIn />, document.getElementById('a'))
+    }
+    
+    unmount() {
+        ReactDOM.unmountComponentAtNode(doucment.getElementById('a'))
+    }
+
+    render() {
+        return (
+            <button onClick={this.mount.bind(this)}>Mount</button>
+            <button onClick={this.unmount.bind(this)}>Unmount</button>
+            <div id="a"></div>
+        )
+    }
+}
+
+/**
+ * WrappedIn: show component life cycle
+ * show even number, and increase to next even number every 500ms
+ */
+class WrappedIn extends Component {
+    constructor() {
+        super()
+        this.state = {
+            val: 0
+        }
+        this.update = this.update.bind(this)
+    }
+    
+    /* update increase this.state.val */
+    update() {
+        this.setState({val: this.state.val + 1})
+    }
+    
+    /* set some extra parameter before render */
+    componentWillMount() {
+        console.log('Will Mount');
+        // set mod to 2
+        this.setState({
+            mod: 2
+        })
+    }
+    
+    render() {
+        return (
+           <button
+                onClick={this.update
+            >{this.state.val * this.state.mod}</button>
+        )
+    }
+    
+    /* actions when component rendered completely */
+    componentDidMount() {
+        console.log('Component Did Mount');
+        // since update() called every 500ms
+        // this.state.val will increase automatically
+        this.inc = setInterval(this.update, 500)
+    }
+    
+    /* clean actions before destructing component */
+    componentWillUnmount() {
+        console.log('Component Will Unmount');
+        // clear interval of update, if not, will cause errors
+        clearInterval(this.inc)
+    }
+}
+
+export default App;
+
+```
+
+## Demo 2
+
+Deprecated Demo.
+Since ShouldComponent() is treated as a hint rather than strict directive, componentWillUpdate(), componentDidUpdate() will still be invoked.
+
+```jsx
+// src/App.js
+import React, {Component} from 'react';
+
+class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      increasing: false
+    }
+  }
+
+  update() {
+    ReactDOM.render(
+      <App val={this.props.val+1} />,
+      document.getElementById('root')
+    )
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      increasing: nextProps.val > this.props.val
+    })
+  }
+
+  ShouldComponentUpdate(nextProps, nextState) {
+    return nextProps.val % 5 === 0;
+  }
+
+  render() {
+    console.log(this.state.increasing);
+    return(
+      <button onClick={this.update.bind(this)}>
+        {this.props.val}
+      </button>
+    )
+  }
+
+  componentDidUpdate(prevPorps, prevState) {
+    console.log(`prevPorps: ${prevPorps.val}`);
+  }
+}
+
+App.defaultProps = {val: 0}
+
+export default App;
+```
+
+# Filter text - Search in React
+
+
+```jsx
+// src/App.js
+import React, {Component} from 'React';
+
+class App extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+            items: []
+        }
+    }
+    
+    /* fetch date from internet - people in Star War */
+    componentWillMount() {
+        fetch('http://swapi.co/api/people/?format=json')
+            .then(res => res.json())
+            .then( ({results: items}) => {this.setState(items)} )
+    }
+    
+    /* set filter with text in <input> */
+    filter(e) {
+        this.setState({
+            filter: e.target.value
+        })
+    }
+
+    render() {
+        
+        let items = this.state.items
+        
+        /* search filter text in items */
+        if (this.state.filter) {
+            items = items.filter( item =>
+                item.name.toLowerCase().includes(this.state.filter.toLowerCase()))
+        }
+    
+        return (
+            <div>
+                {
+                    items.map(item => 
+                        /* each iterated item need a unique "key" */
+                        // <h4 key={item.name}>{item.name}</h4>)
+                        <Person key={item.name} person={item} />)
+                }
+            </div>
+        )
+    }
+}
+
+const Person = (props) => <h4>{props.person.name}</h4>
+
+export default App;
+
+```
+
+
+
+# Resources
+
+- [Facebook Tutorial](https://facebook.github.io/react/tutorial/tutorial.html)
+
