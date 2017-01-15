@@ -503,7 +503,365 @@ export default App;
 
 ```
 
+# High Order Component
 
+
+```jsx
+import React, {Component} from 'react'
+
+/* High Order Component */
+const HOC = (InnerComponent) => class extends Component {
+    constructor() {
+        super()
+        this.state = {
+            count: 0
+        }
+    }
+    
+    update() {
+        this.setState({
+            count: this.state.count + 1
+        })
+    }
+    
+    componentWillMount() {
+        console.log('Will Mount');
+    }
+    
+    render() {
+        return <InnerComponent
+            {...this.props}
+            {...this.state}
+            update=this.update.bind(this)
+        />
+    }
+
+}
+
+class App extends Component {
+    render() {
+        return (
+            <Button>button</Button>
+            <hr />
+            <LabelHOC>label<LabelHOC>
+        )
+    }
+}
+
+// const Button = (props) => <button>{props.children}</button>
+/* with HOC, stateless Button Component have state and update action now */
+const Button = HOC( (props) => 
+    <button onClick={props.update}>{props.children} - {props.count}</button> 
+)
+
+class Label extends Component {
+    componenWillMount() {
+        console.log('Label will mount');
+    }
+    
+    render() {
+        return (
+            <label 
+                onMouseMove={this.prop.update}
+            >{this.props.children} - {this.props.count}</label>
+        )
+    }
+}
+
+/* with HOC, Label have extra state.count and update action now */
+const LabelHOC = HOC(Label)
+
+export default App;
+
+```
+
+# Implement a standalone Babel in browser
+
+
+```html
+...
+<head>
+
+    ...
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js"></script>
+</head>
+
+...
+
+```
+
+
+```jsx
+import React, {Component} from 'react';
+import './App.css'
+
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      err: '',
+      input: '/* add some jsx code here */',
+      output: ''
+    }
+  }
+  update(e) {
+    let code = e.target.value;
+    try {
+      this.setState({
+        output: window.Babel.transform(code, {presets: ['es2015', 'react']}).code,
+        err: ''
+      })
+    } catch(err) {
+      this.setState({
+        err: err.message
+      })
+    }
+  }
+  render() {
+    return (
+      <div>
+        <header>
+          {this.state.err}
+        </header>
+        <div className="container">
+          <textarea 
+            onChange={this.update.bind(this)} 
+            defaultValue={this.state.input}></textarea>
+          <pre>
+            {this.state.output}
+          </pre>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default App;
+```
+
+
+```css
+/* src/App.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+header {
+  display: block;
+  height: 5vh;
+  background-color: pink;
+  color: red;
+  font-size: 14px;
+  overflow: auto;
+}
+
+.container {
+  height: 95vh; /* 95% view height */
+  display: flex;
+}
+
+pre {
+  background-color: #f8f8f8;
+}
+
+pre, textarea {
+  width: 50%;
+  font-size: 28px;
+  overflow: hidden;
+  color: #222;
+  white-space: initial; /* auto change line */
+}
+
+textarea:focus {
+  outline: 0; /* remove outline in OSX system */
+}
+```
+
+# React Children Utilities
+
+
+# Simple demo
+```jsx
+class App extends Component {
+  render() {
+    return (
+      <Parent>
+        <div className="childA"></div>
+        <div className="childB"></div>
+      </Parent>
+    )
+  }
+}
+
+const Parent = (props) => {
+  // console.log(props.children);
+  // let items = props.children.map(child => child);
+  // let items = React.Children.map(props.children, child => child)
+  let items = React.Children.toArray(props.children)
+  // let items = React.Children.only(props.children)
+  console.log(items);
+  return null;
+}
+```
+- prop.children.map() will cause error if single child
+- React.Children.map solved, single/multi elements always return array
+- React.Children.toArray() returns array
+- React.Children.only specified a single child, if not, throw error
+
+## Advanced demo - update selected item
+
+use `React.cloneElement` during `React.Children.map()`
+Since `React.Children` is read-only, every modification is **NOT** affected to real props.children.
+
+```jsx
+// src/App.js
+import React, {Component} from 'react';
+
+class App extends Component {
+    render() {
+        return (
+            <Button>
+                <button value="A">A</button>
+                <button value="B">B</button>
+                <button value="C">C</button>
+            </Button>
+        )
+    }
+}
+
+class Button extends Component {
+    constructor() {
+        super()
+        this.state = {
+            selected: 'None'
+        }
+    }
+    
+    selectedItem(selected) {
+        this.setState({
+            selected
+        })
+    }
+
+    render() {
+        
+        // let items = this.props.children
+        
+        /* map children with callback function 'fn' */
+        /* the second parameter specified how to expand children */
+        let fn = child =>
+            React.cloneElement(child, {
+                onClick: this.selectItem.bind(this, child.props.value)
+            })
+        
+        let items = React.Children.map(this.props.children, fn)
+    
+        return (
+            <div>
+                <h2>You have selected: {this.state.selected}</h2>
+                {items}
+            </div>
+        )
+    }
+}
+
+export default App;
+
+```
+
+# Capton - Reusable React Component
+
+With the props and state, we can create reusable component to satisfied with different situation.
+
+
+```jsx
+import React, {Component, PropTypes} from 'react';
+import ReactDOM from 'react-dom';
+
+/*
+ * change props in NumInput to get a modified <input>
+ * min, max, step, type(number, range), label
+ * update() bind to <input> onChange event
+ */
+class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            red: 0
+        }
+        this.update = this.update.bind(this)
+    }
+    
+    update() {
+        this.setState({
+            // red: ReactDOM.findDOMNode(this.refs.red.refs.inp).value
+            red: this.refs.red.refs.inp.value
+        })
+    }
+    
+    render() {
+        return (
+            <div>
+                <NumInput
+                    ref="red"
+                    max={255}
+                    value={+this.state.red}
+                    update={this.update}
+                    // step={0.01}
+                    // type="number"
+                    label="RED"
+                /> {this.state.red}
+            </div>
+        )
+    }
+}
+
+class NumInput extends Component {
+    render() {
+        let label = this.props.label === '' ? '' :
+            <label>{this.props.label} - {this.props.value}</label>
+        return (
+            <div>
+                <input
+                    ref="inp"
+                    type={this.props.type}
+                    min={this.props.min}
+                    max={this.props.max}
+                    step={this.props.step}
+                    defaultValue={this.props.value}
+                    onChange={this.props.update}
+                />{label}
+            </div>
+        )
+    }
+}
+
+/* prop types */
+NumInput.propTypes = {
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  value: PropTypes.number,
+  update: PropTypes.func.isRequired,
+  label: PropTypes.string,
+  type: PropTypes.oneOf(['range', 'number'])
+}
+
+/* default porps */
+NumInput.defaultProps = {
+  min: 0,
+  max: 0,
+  step: 1,
+  value: 0,
+  label: '',
+  type: 'range'
+}
+
+export default App;
+
+```
 
 # Resources
 
