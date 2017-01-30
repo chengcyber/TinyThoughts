@@ -15,6 +15,9 @@
 
 ## Styles
 - [理解Flexbox model](https://github.com/kimochg/TinyThoughts/blob/master/Styles/flexbox.md)
+- [Nav Image Slider](https://gist.github.com/kimochg/98a369b857a5958fe13295d9d6017cdb)
+- [Fix Image Site](https://gist.github.com/kimochg/611d84d9f7feb8ffc32d0348086506f5)
+- [infinite background animation loop](https://gist.github.com/kimochg/62fd03043fb48a439a4095d253bd950b)
 
 ## NOTES
 转载请注明出处: https://github.com/kimochg/TinyThoughts
