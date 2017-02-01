@@ -671,7 +671,6 @@ function Store() {
 
 ```
 
-
 # Resources
 
 - [Learn ES2015](https://babeljs.io/learn-es2015/)
