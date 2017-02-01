@@ -6,6 +6,9 @@
 - [透悉vi](https://github.com/kimochg/TinyThoughts/blob/master/Coding/GrokVi.md)
 - [学习es6](https://github.com/kimochg/TinyThoughts/blob/master/Coding/es6.md)
 
+## jQuery
+－ [jQuery Snippets](https://github.com/kimochg/TinyThoughts/blob/master/jQuery/snippets.md)
+
 ## React
 - [React 基础](https://github.com/kimochg/TinyThoughts/blob/master/React/react%5Ffundamentals.md)
 
