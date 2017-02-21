@@ -12,6 +12,7 @@
 ## React
 - [React 基础](https://github.com/kimochg/TinyThoughts/blob/master/React/react%5Ffundamentals.md)
 - [Saga Pattern](https://github.com/kimochg/TinyThoughts/blob/master/React/SagaPattern.md)
+- [Redux-Saga Deduplicate Request](https://gist.github.com/kimochg/cdacf4b7eee3ba1b1d514351668c5d86)
 
 ## Security
 - [MEAN项目全站HTTPS](https://github.com/kimochg/TinyThoughts/blob/master/Security/MEAN%20project%20-%20HTTPS%20on%20whole%20site.md)
