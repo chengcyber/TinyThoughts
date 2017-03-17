@@ -26,6 +26,7 @@
 
 ## TypeScript
 - [Running With TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/RunningWithTypeScript.md)
+- [Effective TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/EffectiveTypeScript.md)
 
 ## NOTES
 转载请注明出处: https://github.com/kimochg/TinyThoughts
