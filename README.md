@@ -24,6 +24,9 @@
 - [Fix Image Site](https://gist.github.com/kimochg/611d84d9f7feb8ffc32d0348086506f5)
 - [infinite background animation loop](https://gist.github.com/kimochg/62fd03043fb48a439a4095d253bd950b)
 
+## Test
+- [Jest](https://github.com/kimochg/TinyThoughts/blob/master/Test/Jest.md)
+
 ## TypeScript
 - [Running With TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/RunningWithTypeScript.md)
 - [Effective TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/EffectiveTypeScript.md)
