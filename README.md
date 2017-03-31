@@ -2,6 +2,10 @@
  Thoughts can not escape now !
  Every pieces here maybe lifesaver!
 
+## Browser
+
+- [Responsive Image](https://github.com/kimochg/TinyThoughts/blob/master/Browser/ResponsiveImage.md)
+
 ## Coding
 - [透悉vi](https://github.com/kimochg/TinyThoughts/blob/master/Coding/GrokVi.md)
 - [学习es6](https://github.com/kimochg/TinyThoughts/blob/master/Coding/es6.md)
