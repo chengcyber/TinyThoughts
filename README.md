@@ -14,6 +14,7 @@
 - [jQuery Snippets](https://github.com/kimochg/TinyThoughts/blob/master/jQuery/snippets.md)
 
 ## React
+- [Realtime React with GraphQL](https://github.com/kimochg/TinyThoughts/blob/master/React/RealtimeReactAppsWithGraphQL.md)
 - [React 基础](https://github.com/kimochg/TinyThoughts/blob/master/React/react%5Ffundamentals.md)
 - [Saga Pattern](https://github.com/kimochg/TinyThoughts/blob/master/React/SagaPattern.md)
 - [Redux-Saga Deduplicate Request](https://gist.github.com/kimochg/cdacf4b7eee3ba1b1d514351668c5d86)
