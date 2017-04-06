@@ -33,6 +33,9 @@
 ## Test
 - [Jest](https://github.com/kimochg/TinyThoughts/blob/master/Test/Jest.md)
 
+## Tools
+- [Tmux](https://github.com/kimochg/TinyThoughts/blob/master/Tools/Tmux.md)
+
 ## TypeScript
 - [Running With TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/RunningWithTypeScript.md)
 - [Effective TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/EffectiveTypeScript.md)
