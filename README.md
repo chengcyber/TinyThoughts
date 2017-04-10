@@ -13,6 +13,9 @@
 ## jQuery
 - [jQuery Snippets](https://github.com/kimochg/TinyThoughts/blob/master/jQuery/snippets.md)
 
+## Ops
+- [Docker](https://github.com/kimochg/TinyThoughts/blob/master/Ops/Docker.md)
+
 ## React
 - [Realtime React with GraphQL](https://github.com/kimochg/TinyThoughts/blob/master/React/RealtimeReactAppsWithGraphQL.md)
 - [React 基础](https://github.com/kimochg/TinyThoughts/blob/master/React/react%5Ffundamentals.md)
@@ -32,6 +35,9 @@
 
 ## Test
 - [Jest](https://github.com/kimochg/TinyThoughts/blob/master/Test/Jest.md)
+
+## Tools
+- [Tmux](https://github.com/kimochg/TinyThoughts/blob/master/Tools/Tmux.md)
 
 ## TypeScript
 - [Running With TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/RunningWithTypeScript.md)
