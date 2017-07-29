@@ -13,6 +13,9 @@
 ## jQuery
 - [jQuery Snippets](https://github.com/kimochg/TinyThoughts/blob/master/jQuery/snippets.md)
 
+## Ocaml
+- [Tutorial](https://github.com/kimochg/TinyThoughts/blob/master/Ocaml/tutorial.md)
+
 ## Ops
 - [Docker](https://github.com/kimochg/TinyThoughts/blob/master/Ops/Docker.md)
 
