@@ -19,6 +19,9 @@
 ## Ops
 - [Docker](https://github.com/kimochg/TinyThoughts/blob/master/Ops/Docker.md)
 
+## Rails
+- [DB Relationship](https://github.com/kimochg/TinyThoughts/blob/master/Rails/DB_Relationship.md)
+
 ## React
 - [Realtime React with GraphQL](https://github.com/kimochg/TinyThoughts/blob/master/React/RealtimeReactAppsWithGraphQL.md)
 - [React 基础](https://github.com/kimochg/TinyThoughts/blob/master/React/react%5Ffundamentals.md)
