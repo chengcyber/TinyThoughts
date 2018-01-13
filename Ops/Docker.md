@@ -63,7 +63,7 @@ docker ps
 docker run --rm nginx nginx -h
 ```
 
-`--rm` automatically removed after container existed
+`--rm` automatically removed after container exited
 
 ## monitor short-lived container
 
