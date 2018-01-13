@@ -40,6 +40,7 @@
 - [Fix Image Site](https://gist.github.com/kimochg/611d84d9f7feb8ffc32d0348086506f5)
 - [infinite background animation loop](https://gist.github.com/kimochg/62fd03043fb48a439a4095d253bd950b)
 - [Aspect Ratio Hack](https://github.com/kimochg/TinyThoughts/blob/b12fa254d54c9f9b8369ab52d29e52a571c79e4a/Styles/aspect%20ratio%20hack.md)
+- [Containing Block](https://github.com/kimochg/TinyThoughts/tree/master/Styles/containing-block.md)
 
 ## Test
 - [Jest](https://github.com/kimochg/TinyThoughts/blob/master/Test/Jest.md)
