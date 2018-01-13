@@ -51,8 +51,16 @@
 - [Running With TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/RunningWithTypeScript.md)
 - [Effective TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/EffectiveTypeScript.md)
 
-## NOTES
-转载请注明出处: https://github.com/kimochg/TinyThoughts
 
-## LICENSE
-GPL-3.0
+------------------
+
+# License
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+<br />
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<br />
+这篇列表内的文章遵守 <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">署名 4.0 国际</a> 许可
+
+Please provide a link back to this repository. This is not necessary for GitHub forks.
+转载请注明出处: https://github.com/kimochg/TinyThoughts
