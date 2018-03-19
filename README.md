@@ -5,6 +5,7 @@
 ## Browser
 
 - [Responsive Image](https://github.com/kimochg/TinyThoughts/blob/master/Browser/ResponsiveImage.md)
+- [Metrics](https://github.com/kimochg/TinyThoughts/blob/master/Browser/Metrics.md)
 
 ## Coding
 - [透悉vi](https://github.com/kimochg/TinyThoughts/blob/master/Coding/GrokVi.md)
