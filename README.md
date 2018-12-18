@@ -50,6 +50,7 @@
 - [Tmux](https://github.com/kimochg/TinyThoughts/blob/master/Tools/Tmux.md)
 
 ## TypeScript
+- [Advance TS](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/Advanced-TS.md)
 - [Running With TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/RunningWithTypeScript.md)
 - [Effective TypeScript](https://github.com/kimochg/TinyThoughts/blob/master/TypeScript/EffectiveTypeScript.md)
 
